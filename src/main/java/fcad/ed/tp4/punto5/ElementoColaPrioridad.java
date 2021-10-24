@@ -13,11 +13,11 @@ import ar.edu.uner.fcad.ed.edlineales.colas.ColaPorEnlaces;
 public class ElementoColaPrioridad<T> implements Comparable<ElementoColaPrioridad<T>> {
 
     protected int prioridad;
-    protected T valor;
+    protected ColaPorEnlaces<T> valores;
 
-    public ElementoColaPrioridad(int prioridad, T valor) {
+    public ElementoColaPrioridad(int prioridad, ColaPorEnlaces<T> valores) {
         this.prioridad = prioridad;
-        this.valor = valor;
+        this.valores = valores;
     }
 
     @Override
