@@ -1,6 +1,5 @@
 package fcad.ed.tp4.punto4;
 
-import fcad.ed.tp4.punto3.NodoColaHeap;
 import fcad.ed.tp4.punto3.ColaHeap;
 
 public class ClienteColaHeap {
@@ -24,7 +23,7 @@ public class ClienteColaHeap {
         cola.dequeue();
         System.out.println(cola);
 
-        System.out.println("isFull(): " + cola.isFull());          //se espera true si esta llena
+        System.out.println("isFull(): " + cola.isFull());    //se espera true si esta llena
 
         cola.makeEmpty();
         System.out.println("Cola: " + cola);
