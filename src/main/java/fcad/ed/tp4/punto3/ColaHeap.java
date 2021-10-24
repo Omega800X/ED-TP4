@@ -47,11 +47,10 @@ public class ColaHeap<T extends Comparable<? super T>> implements Cola<T> {
     @Override
     public String toString() {
         String res = "";
-        if(heap.vacio()){
+        if (heap.vacio()) {
             return res;
         }
         return res + heap;
     }
-    
-    
+
 }

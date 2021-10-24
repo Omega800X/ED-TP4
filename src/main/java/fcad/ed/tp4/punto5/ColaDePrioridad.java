@@ -8,6 +8,10 @@ public class ColaDePrioridad<T extends Comparable<T>> implements ColaPrioridadIn
     private int cantElem;
     protected ListaEnlazadaOrdenada<ElementoColaPrioridad<T>> lista;
 
+    public ColaDePrioridad() {
+        this.lista = new ListaEnlazadaOrdenada();
+    }
+
     @Override
     public int size() {
         return cantElem;
@@ -20,6 +24,9 @@ public class ColaDePrioridad<T extends Comparable<T>> implements ColaPrioridadIn
 
     @Override
     public T min() {
+        if (this.isEmpty()) {
+            return null;
+        }
         return this.lista.first().valores.getFront();
     }
 
@@ -43,7 +50,16 @@ public class ColaDePrioridad<T extends Comparable<T>> implements ColaPrioridadIn
 
     @Override
     public void removeMin() {
+
         this.lista.first().valores.dequeue();
+        if (this.lista.first().valores.isEmpty()) {
+            this.lista.removeFirst();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "ColaDePrioridad{" + "lista=" + lista + '}';
     }
 
 }
