@@ -5,7 +5,7 @@ import ar.edu.uner.fcad.ed.edlineales.colas.Cola;
 
 public class ColaHeap<T extends Comparable<? super T>> implements Cola<T> {
 
-    public Heap<NodoColaHeap<T>> heap;
+    protected Heap<NodoColaHeap<T>> heap;
 
     public ColaHeap() {
         this.heap = new Heap();
@@ -18,29 +18,40 @@ public class ColaHeap<T extends Comparable<? super T>> implements Cola<T> {
 
     @Override
     public boolean isFull() {
-        return !(this.heap.isEmpty());
+        return false;
     }
 
     @Override
     public T getFront() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.heap.findMin().valor;
     }
 
     @Override
     public void dequeue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.heap.removeMin();
     }
 
     @Override
-    public void enqueue(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void enqueue(T valor) {
+        this.heap.addElement(new NodoColaHeap(valor));
     }
 
     @Override
     public void makeEmpty() {
-        while (this.isFull()) {
+        while (!this.isEmpty()) {
             this.heap.removeMin();
         }
 
     }
+
+    @Override
+    public String toString() {
+        String res = "";
+        if(heap.vacio()){
+            return res;
+        }
+        return res + heap;
+    }
+    
+    
 }
